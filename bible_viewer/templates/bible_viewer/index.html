@@ -1,0 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bible_viewer/style.css' %}" />
+
+<!--load bootstrap-->
+
+<p>first line</p>
+{% if output %}
+    {{output.content|safe}}
+    {# {% autoescape off %}{{ myhtml }}{% endautoescape %} #}
+{% endif %}
