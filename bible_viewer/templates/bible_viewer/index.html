@@ -1,11 +1,36 @@
-{% load static %}
+{% extends "bible_viewer/base.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'bible_viewer/style.css' %}" />
+{% block viewer_body %}
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e83e8c;">
+    <div class="container flex-column flex-md-row">
+        <a class="navbar-brand" href="/">Bible Reading Plan</a>
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item mr-2">
+                <div class="nav-link"><input type="text" name="date" id="date" placeholder=""></div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Versions
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">New Living Translation</a>
+                    {# <div class="dropdown-divider"></div> #}
+                    {# <a class="dropdown-item" href="">Something else here</a> #}
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<!--load bootstrap-->
+<div class="container">
 
-<p>first line</p>
-{% if output %}
-    {{output.content|safe}}
+{% if chapters %}
+    <h2><p>{{chapters.reference_human}}</p></h2>
+    {{chapters.content | safe}}
     {# {% autoescape off %}{{ myhtml }}{% endautoescape %} #}
 {% endif %}
+
+</div>
+
+{% endblock viewer_body %}
