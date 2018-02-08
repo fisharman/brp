@@ -1,9 +1,13 @@
 $(document).ready(function() {
           $("#date").datepicker({
             dateFormat: "dd-mm-yy",
-            constrainInput: false
+            constrainInput: true,
+            onClose: function (selectedDate) {
+                location.href = '/NLT2013/' + selectedDate;
+            }
           });
         });
+
 
 var elements = document.getElementsByClassName("footnote");
 for(var x=0; x < elements.length; x++)

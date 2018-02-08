@@ -15,3 +15,12 @@ h2 p{
 .woj{
   color: red;
 }
+
+
+.footer {
+  margin-top: 3vh;
+  padding-bottom: 1px ;
+  width: 100%;
+  line-height: 3; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}

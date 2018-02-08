@@ -3,10 +3,10 @@
 {% block viewer_body %}
 <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e83e8c;">
     <div class="container flex-column flex-md-row">
-        <a class="navbar-brand" href="/">Bible Reading Plan</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Bible Reading Plan</a>
         <ul class="navbar-nav flex-row">
             <li class="nav-item mr-2">
-                <div class="nav-link"><input type="text" name="date" id="date" placeholder=""></div>
+                <div class="nav-link"><input type="text" name="date" id="date" value="{{current_date}}"></div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -28,9 +28,21 @@
 {% if chapters %}
     <h2><p>{{chapters.reference_human}}</p></h2>
     {{chapters.content | safe}}
-    {# {% autoescape off %}{{ myhtml }}{% endautoescape %} #}
+{% else %}
+    <h2>
+        <p>No Readings Today!</p><p>Take a break or select another date.</p>
+    </h2>
 {% endif %}
 
 </div>
+
+<footer class="footer">
+      <div class="container text-muted">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Bible Chapter Viewer &middot; <a href="https://github.com/fisharman/brp">GitHub</a> </p>
+      </div>
+</footer>
 
 {% endblock viewer_body %}

@@ -3,7 +3,7 @@ class BibleViewerRouter(object):
     A router to control all database operations on models in
     the bible_view application
     """
-
+    #Todo 2: add rules for selecting different versions
     def db_for_read(self, model, **hints):
         """
         Point all operations on bible_viewer models to 'nlt2013'
